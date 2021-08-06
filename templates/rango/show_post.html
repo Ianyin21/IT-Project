@@ -1,0 +1,26 @@
+{% extends 'rango/base.html' %}
+{% load static %}
+
+{% block title_block %}
+    Homepage
+{% endblock %}
+
+{% block body_block %}
+<h1>Post Page</h1>
+    {% if user.is_authenticated %}
+	howdy {{ user.username }}!
+	{% else %}
+	hey there partner!
+	{% endif %}
+
+<div>
+		{% if post %}
+            <h3>{{ post.title }}</h3>
+            <p>{{  post.content }}</p>
+            <p>{{  post.created_at }}</p>
+		{% else %}
+			<strong>There are no such post any more.</strong>
+		{% endif %}
+</div>
+
+{% endblock %}
